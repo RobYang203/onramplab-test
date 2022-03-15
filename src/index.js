@@ -7,6 +7,10 @@ import configureStore from 'store/configureStore';
 import theme from 'theme';
 import App from './App';
 import { SnackbarProvider } from 'notistack';
+import { configureServer } from 'mocks/server';
+
+
+configureServer();
 
 const { store } = configureStore();
 
