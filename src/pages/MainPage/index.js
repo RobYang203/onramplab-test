@@ -1,8 +1,21 @@
-import React from 'react'
+import React from 'react';
+import TableContainer from '@material-ui/core/TableContainer';
+import { Paper, Table, TableCell, TableHead, TableRow } from '@material-ui/core';
+
+const HEADERS = ['State', 'City', 'Houses', 'Avg. Price'];
 
 function MainPage() {
-    return <div>MainPage</div>
+  return (
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          {HEADERS.map((header, i) => {
+            return <TableCell id={`table-header-${i}`}>{header}</TableCell>;
+          })}
+        </TableHead>
+      </Table>
+    </TableContainer>
+  );
 }
-
 
 export default MainPage;
