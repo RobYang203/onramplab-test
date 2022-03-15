@@ -1,12 +1,14 @@
-import { combineReducers } from "redux";
-import setting from './settingReducer'
+import { combineReducers } from 'redux';
+import setting from './settingReducer';
+import properties from './properties';
 
 const appReducer = combineReducers({
-    setting
+  setting,
+  properties,
 });
 
-const rootReducer = (state , action) => {
-    return appReducer(state , action);
-}
+const rootReducer = (state, action) => {
+  return appReducer(state, action);
+};
 
 export default rootReducer;

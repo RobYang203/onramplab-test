@@ -1,6 +1,5 @@
-import { IconButton, makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import { AppBar, Toolbar } from "@material-ui/core";
-import HistoryIcon from "@material-ui/icons/History";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,12 +19,7 @@ function TopBar() {
   return (
     <AppBar className={classes.root} position={"static"}>
       <Toolbar>
-        <Typography className={classes.title}>Food Cart</Typography>
-        <div>
-          <IconButton color="inherit">
-            <HistoryIcon />
-          </IconButton>
-        </div>
+        <Typography className={classes.title}>Properties</Typography>
       </Toolbar>
     </AppBar>
   );

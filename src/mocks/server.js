@@ -1,4 +1,7 @@
-import { createServer, Factory, Model, RestSerializer } from 'miragejs';
+import { createServer, Factory, Model } from 'miragejs';
+import faker from '@faker-js/faker/locale/en_US';
+
+faker.locale = 'en_US';
 
 const TYPES = [`Apartment`, `Single-family`, `Townhomes`, `Condo`];
 
@@ -13,10 +16,10 @@ export function configureServer() {
           return i + 1;
         },
         city() {
-          return '123';
+          return faker.address.cityName();
         },
         state() {
-          return '123';
+          return faker.address.state();
         },
         type(i) {
           const typeIndex = Math.floor(i % 4);
@@ -24,12 +27,12 @@ export function configureServer() {
           return TYPES[typeIndex];
         },
         price() {
-          return '123';
+          return faker.commerce.price();
         },
       }),
     },
     seeds(server) {
-      server.createList('property', 10);
+      server.createList('property', 100);
     },
     routes() {
       this.get('/api/properties', (schema) => {

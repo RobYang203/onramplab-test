@@ -1,24 +1,25 @@
 import { CssBaseline } from '@material-ui/core';
 import LoadingMask from 'components/LoadingMask';
-import MessageCenter from 'components/MessageCenter';
 import MainLayout from 'layouts/MainLayout';
 import MainPage from 'pages/MainPage';
 import { Switch, Route } from 'react-router-dom';
-import { fetchCitiesResult } from 'apis/cities';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCityListAction } from 'actions/creators/city';
 
 
 
 function App() {
+  const dispatch = useDispatch();
+  
   useEffect(()=>{
-    fetchCitiesResult().then((res)=>{
-      console.log("🚀 ~ file: index.js ~ line 15 ~ fetchCitiesResult ~ res", res)
-      
-      })
-  },[])
+    dispatch(getCityListAction());
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+  
   return (
     <div className='App'>
-      <MessageCenter />
       <CssBaseline />
       <MainLayout>
         <Switch>
