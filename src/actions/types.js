@@ -6,7 +6,7 @@ export const syncActionTypes = [
   'SEND_MESSAGE',
 ];
 
-export const basicAsyncActionTypes = [];
+export const basicAsyncActionTypes = ['GET_CITY_LIST'];
 
 const asyncActionTypes = basicAsyncActionTypes.reduce((result, actionType) => {
   return [
